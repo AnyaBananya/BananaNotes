@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">BananaNotes</string>
-    <string name="toolbat_title">Banana Notes</string>
+    <string name="toolbar_title">Banana Notes</string>
+    <string name="add_notes_description">Add notes</string>
 </resources>
