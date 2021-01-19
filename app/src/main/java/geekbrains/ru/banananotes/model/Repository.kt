@@ -2,7 +2,7 @@ package geekbrains.ru.banananotes.model
 
 object Repository {
 
-    private val notes: List<Note> = listOf(
+    private val notes: MutableList<Note> = mutableListOf(
         Note(
             "My first note",
             "Kotlin is a very short, but expressive language",
@@ -22,5 +22,9 @@ object Repository {
 
     fun getNotes(): List<Note> {
         return notes
+    }
+
+    fun addNote(note: Note) {
+        notes.add(note)
     }
 }

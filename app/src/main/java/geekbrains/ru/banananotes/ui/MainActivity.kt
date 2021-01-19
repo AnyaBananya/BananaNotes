@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import geekbrains.ru.banananotes.R
 import geekbrains.ru.banananotes.databinding.ActivityMainBinding
 import geekbrains.ru.banananotes.viewmodel.MainViewModel
 
@@ -24,6 +23,10 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
         adapter = MainAdapter()
         ui.mainRecycler.adapter = adapter
+
+        ui.floatingButton.setOnClickListener {
+            viewModel.addNote("New note", "My new note", 0xffff6e40.toInt())
+        }
 
         viewModel.viewState().observe(
             this,
