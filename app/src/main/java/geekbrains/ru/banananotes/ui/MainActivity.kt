@@ -2,7 +2,6 @@ package geekbrains.ru.banananotes.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import geekbrains.ru.banananotes.databinding.ActivityMainBinding
 import geekbrains.ru.banananotes.model.Note
@@ -35,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.viewState().observe(
             this,
-            Observer<MainViewState> { state -> state?.let { adapter.notes = state.notes } })
+            { state -> state?.let { adapter.notes = state.notes } })
     }
 
     private fun openNoteScreen(note: Note? = null) {

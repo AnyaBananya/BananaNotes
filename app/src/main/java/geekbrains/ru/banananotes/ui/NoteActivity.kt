@@ -96,11 +96,12 @@ class NoteActivity : AppCompatActivity() {
         else -> super.onOptionsItemSelected(item)
     }
 
-    private fun createNewNote(): Note = Note(
-        UUID.randomUUID().toString(),
-        ui.titleEt.text.toString(),
-        ui.bodyEt.text.toString()
-    )
+    private fun createNewNote(): Note {
+        return viewModel.addNote(
+            ui.titleEt.text.toString(),
+            ui.bodyEt.text.toString()
+        )
+    }
 
     private fun triggerSaveNote() {
         if (ui.titleEt.text == null || ui.titleEt.text!!.length < 3) return
