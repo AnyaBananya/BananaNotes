@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1064164165674",
+    "project_id": "banananotes-ad9da",
+    "storage_bucket": "banananotes-ad9da.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1064164165674:android:72dca8c146ddd490fd1b53",
+        "android_client_info": {
+          "package_name": "geekbrains.ru.banananotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1064164165674-kam78qfgh5j2nsf0ha2fe1nqpfti2ia6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7UvIWyicoHtJUGMUk92W_vJJ4UD99nGA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1064164165674-kam78qfgh5j2nsf0ha2fe1nqpfti2ia6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
