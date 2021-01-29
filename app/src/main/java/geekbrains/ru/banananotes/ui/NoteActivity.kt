@@ -10,6 +10,7 @@ import android.text.TextWatcher
 import android.view.MenuItem
 import androidx.lifecycle.ViewModelProvider
 import geekbrains.ru.banananotes.R
+import geekbrains.ru.banananotes.databinding.ActivityMainBinding
 import geekbrains.ru.banananotes.databinding.ActivityNoteBinding
 import geekbrains.ru.banananotes.model.Color
 import geekbrains.ru.banananotes.model.Note
@@ -34,6 +35,7 @@ class NoteActivity : BaseActivity<Note?, NoteViewState>() {
     override val ui: ActivityNoteBinding by lazy { ActivityNoteBinding.inflate(layoutInflater) }
     override val layoutRes: Int = R.layout.activity_note
     override val viewModel: NoteViewModel by lazy { ViewModelProvider(this).get(NoteViewModel::class.java) }
+
     private val textChangeListener = object : TextWatcher {
         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             triggerSaveNote()
@@ -67,21 +69,14 @@ class NoteActivity : BaseActivity<Note?, NoteViewState>() {
     }
 
     private fun initView() {
-        ui.titleEt.setText(note?.title ?: "")
-        ui.bodyEt.setText(note?.note ?: "")
+        note?.run {
+            ui.titleEt.setText(title)
+            ui.bodyEt.setText(note)
+            ui.toolbar.setBackgroundColor(color.getColorInt(this@NoteActivity))
 
-        val color = when (note?.color) {
-            Color.WHITE -> R.color.color_white
-            Color.VIOLET -> R.color.color_violet
-            Color.YELLOW -> R.color.color_yellow
-            Color.RED -> R.color.color_red
-            Color.PINK -> R.color.color_pink
-            Color.GREEN -> R.color.color_green
-            Color.BLUE -> R.color.color_blue
-            else -> R.color.color_yellow
+            supportActionBar?.title = lastChanged.format()
         }
 
-        ui.toolbar.setBackgroundColor(resources.getColor(color))
         ui.titleEt.addTextChangedListener(textChangeListener)
         ui.bodyEt.addTextChangedListener(textChangeListener)
     }
@@ -118,5 +113,9 @@ class NoteActivity : BaseActivity<Note?, NoteViewState>() {
     override fun renderData(data: Note?) {
         this.note = data
         initView()
+    }
+
+    override fun onLogout() {
+        //
     }
 }
