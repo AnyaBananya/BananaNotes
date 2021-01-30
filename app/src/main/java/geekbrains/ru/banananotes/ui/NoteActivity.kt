@@ -7,14 +7,12 @@ import android.os.Handler
 import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.MenuItem
 import androidx.lifecycle.ViewModelProvider
 import geekbrains.ru.banananotes.R
 import geekbrains.ru.banananotes.databinding.ActivityNoteBinding
 import geekbrains.ru.banananotes.model.Color
 import geekbrains.ru.banananotes.model.Note
-import geekbrains.ru.banananotes.viewmodel.MainViewModel
 import geekbrains.ru.banananotes.viewmodel.NoteViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
@@ -33,8 +31,7 @@ class NoteActivity : BaseActivity<Note?, NoteViewState>() {
     }
 
     private var note: Note? = null
-    private lateinit var ui: ActivityNoteBinding
-    //by lazy { ActivityNoteBinding.inflate(layoutInflater) }
+    override val ui: ActivityNoteBinding by lazy { ActivityNoteBinding.inflate(layoutInflater) }
     override val layoutRes: Int = R.layout.activity_note
     override val viewModel: NoteViewModel by lazy { ViewModelProvider(this).get(NoteViewModel::class.java) }
     private val textChangeListener = object : TextWatcher {
@@ -53,8 +50,6 @@ class NoteActivity : BaseActivity<Note?, NoteViewState>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        ui = ActivityNoteBinding.inflate(layoutInflater)
-        setContentView(ui.root)
 
         val noteId = intent.getStringExtra(EXTRA_NOTE)
         if (noteId != null) {
@@ -114,7 +109,7 @@ class NoteActivity : BaseActivity<Note?, NoteViewState>() {
                 title = ui.titleEt.text.toString(),
                 note = ui.bodyEt.text.toString(),
                 lastChanged = Date()
-            )?: createNewNote()
+            ) ?: createNewNote()
 
             if (note != null) viewModel.saveChanges(note!!)
         }, SAVE_DELAY)
