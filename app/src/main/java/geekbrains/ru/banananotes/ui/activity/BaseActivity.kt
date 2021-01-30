@@ -1,13 +1,12 @@
-package geekbrains.ru.banananotes.ui
+package geekbrains.ru.banananotes.ui.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import androidx.viewbinding.ViewBinding
 import com.google.android.material.snackbar.Snackbar
 import geekbrains.ru.banananotes.R
+import geekbrains.ru.banananotes.ui.viewstate.BaseViewState
 import geekbrains.ru.banananotes.viewmodel.BaseViewModel
-import kotlinx.android.synthetic.main.activity_main.*
 
 abstract class BaseActivity<T, VS : BaseViewState<T>> : AppCompatActivity() {
     abstract val viewModel: BaseViewModel<T, VS>

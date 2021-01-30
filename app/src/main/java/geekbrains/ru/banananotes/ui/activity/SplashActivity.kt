@@ -1,20 +1,16 @@
-package geekbrains.ru.banananotes.ui
+package geekbrains.ru.banananotes.ui.activity
 
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.lifecycle.ViewModelProvider
-import androidx.viewbinding.ViewBinding
 import com.firebase.ui.auth.AuthUI
-import com.google.android.material.snackbar.Snackbar
 import geekbrains.ru.banananotes.R
 import geekbrains.ru.banananotes.databinding.ActivitySplashBinding
 import geekbrains.ru.banananotes.model.NoAuthException
-import geekbrains.ru.banananotes.ui.NoteActivity.Companion.getStartIntent
-import geekbrains.ru.banananotes.viewmodel.MainViewModel
+import geekbrains.ru.banananotes.ui.viewstate.SplashViewState
 import geekbrains.ru.banananotes.viewmodel.SplashViewModel
 
 private const val RC_SING_IN = 42
