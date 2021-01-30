@@ -1,15 +1,16 @@
-package geekbrains.ru.banananotes.model
+package geekbrains.ru.banananotes.model.provider
 
 import android.util.Log
-import android.widget.TableRow
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.OnSuccessListener
-import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.*
-import java.lang.Exception
+import geekbrains.ru.banananotes.model.NoAuthException
+import geekbrains.ru.banananotes.model.Note
+import geekbrains.ru.banananotes.model.NoteResult
+import geekbrains.ru.banananotes.model.User
 
 private const val NOTES_COLLECTION = "notes"
 private const val USERS_COLLECTION = "users"

@@ -1,15 +1,11 @@
-package geekbrains.ru.banananotes.ui
+package geekbrains.ru.banananotes.ui.activity
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 import com.google.android.material.snackbar.Snackbar
 import geekbrains.ru.banananotes.R
-import geekbrains.ru.banananotes.databinding.ActivityMainBinding
-import geekbrains.ru.banananotes.model.Note
+import geekbrains.ru.banananotes.ui.viewstate.BaseViewState
 import geekbrains.ru.banananotes.viewmodel.BaseViewModel
 
 abstract class BaseActivity<T, VS : BaseViewState<T>> : AppCompatActivity() {

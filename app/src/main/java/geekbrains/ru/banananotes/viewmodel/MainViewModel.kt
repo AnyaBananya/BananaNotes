@@ -3,8 +3,8 @@ package geekbrains.ru.banananotes.viewmodel
 import androidx.lifecycle.Observer
 import geekbrains.ru.banananotes.model.Note
 import geekbrains.ru.banananotes.model.NoteResult
-import geekbrains.ru.banananotes.model.Repository
-import geekbrains.ru.banananotes.ui.MainViewState
+import geekbrains.ru.banananotes.model.repository.Repository
+import geekbrains.ru.banananotes.ui.viewstate.MainViewState
 
 class MainViewModel(val repository: Repository = Repository) :
     BaseViewModel<List<Note>?, MainViewState>() {

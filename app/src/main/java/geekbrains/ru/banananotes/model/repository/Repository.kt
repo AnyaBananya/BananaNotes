@@ -1,4 +1,8 @@
-package geekbrains.ru.banananotes.model
+package geekbrains.ru.banananotes.model.repository
+
+import geekbrains.ru.banananotes.model.Note
+import geekbrains.ru.banananotes.model.provider.FireStoreProvider
+import geekbrains.ru.banananotes.model.provider.RemoteDataProvider
 
 object Repository {
 

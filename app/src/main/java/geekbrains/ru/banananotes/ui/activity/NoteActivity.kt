@@ -1,4 +1,4 @@
-package geekbrains.ru.banananotes.ui
+package geekbrains.ru.banananotes.ui.activity
 
 import android.content.Context
 import android.content.Intent
@@ -10,10 +10,12 @@ import android.text.TextWatcher
 import android.view.MenuItem
 import androidx.lifecycle.ViewModelProvider
 import geekbrains.ru.banananotes.R
-import geekbrains.ru.banananotes.databinding.ActivityMainBinding
 import geekbrains.ru.banananotes.databinding.ActivityNoteBinding
-import geekbrains.ru.banananotes.model.Color
 import geekbrains.ru.banananotes.model.Note
+import geekbrains.ru.banananotes.ui.activity.BaseActivity
+import geekbrains.ru.banananotes.ui.format
+import geekbrains.ru.banananotes.ui.getColorInt
+import geekbrains.ru.banananotes.ui.viewstate.NoteViewState
 import geekbrains.ru.banananotes.viewmodel.NoteViewModel
 import java.util.*
 

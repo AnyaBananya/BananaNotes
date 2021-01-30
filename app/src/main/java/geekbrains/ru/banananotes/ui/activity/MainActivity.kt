@@ -1,4 +1,4 @@
-package geekbrains.ru.banananotes.ui
+package geekbrains.ru.banananotes.ui.activity
 
 import android.app.Dialog
 import android.content.Context
@@ -10,12 +10,16 @@ import android.view.MenuItem
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.viewbinding.ViewBinding
 import com.firebase.ui.auth.AuthUI
 import geekbrains.ru.banananotes.R
 import geekbrains.ru.banananotes.databinding.ActivityMainBinding
-import geekbrains.ru.banananotes.databinding.ActivitySplashBinding
 import geekbrains.ru.banananotes.model.Note
+import geekbrains.ru.banananotes.ui.MainAdapter
+import geekbrains.ru.banananotes.ui.OnItemClickListener
+import geekbrains.ru.banananotes.ui.activity.BaseActivity
+import geekbrains.ru.banananotes.ui.activity.NoteActivity
+import geekbrains.ru.banananotes.ui.activity.SplashActivity
+import geekbrains.ru.banananotes.ui.viewstate.MainViewState
 import geekbrains.ru.banananotes.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 

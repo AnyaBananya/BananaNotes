@@ -3,8 +3,8 @@ package geekbrains.ru.banananotes.viewmodel
 import androidx.lifecycle.Observer
 import geekbrains.ru.banananotes.model.Note
 import geekbrains.ru.banananotes.model.NoteResult
-import geekbrains.ru.banananotes.model.Repository
-import geekbrains.ru.banananotes.ui.NoteViewState
+import geekbrains.ru.banananotes.model.repository.Repository
+import geekbrains.ru.banananotes.ui.viewstate.NoteViewState
 import java.util.*
 
 

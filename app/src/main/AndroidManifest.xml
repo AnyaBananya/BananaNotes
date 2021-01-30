@@ -15,16 +15,16 @@
         android:theme="@style/Theme.BananaNotes">
         <activity
             android:theme="@style/SplashTheme"
-            android:name=".ui.SplashActivity">
+            android:name=".ui.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.MainActivity" />
-        <activity android:name=".ui.NoteActivity" />
-        <activity android:name=".ui.BaseActivity" />
+        <activity android:name=".ui.activity.MainActivity" />
+        <activity android:name=".ui.activity.NoteActivity" />
+        <activity android:name=".ui.activity.BaseActivity" />
     </application>
 
 </manifest>
