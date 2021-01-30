@@ -1,5 +1,6 @@
 package geekbrains.ru.banananotes.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.Observer
 import geekbrains.ru.banananotes.model.Note
 import geekbrains.ru.banananotes.model.NoteResult

@@ -43,11 +43,11 @@ class FireStoreProvider : RemoteDataProvider {
         val result = MutableLiveData<NoteResult>()
         notesReference.document(id)
             .get()
-            .addOnSuccessListener {
-                OnSuccessListener<DocumentSnapshot> { snapshot ->
+            .addOnSuccessListener (
+                OnSuccessListener { snapshot ->
                     result.value = NoteResult.Success(snapshot.toObject(Note::class.java))
                 }
-            }
+            )
             .addOnFailureListener { exception -> result.value = NoteResult.Error(exception) }
         return result
     }
