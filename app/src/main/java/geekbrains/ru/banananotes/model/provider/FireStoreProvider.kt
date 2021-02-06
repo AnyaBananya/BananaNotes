@@ -14,17 +14,14 @@ import geekbrains.ru.banananotes.model.User
 
 private const val NOTES_COLLECTION = "notes"
 private const val USERS_COLLECTION = "users"
+private val TAG = "${FireStoreProvider::class.java.simpleName} :"
 
-class FireStoreProvider : RemoteDataProvider {
+class FireStoreProvider(
+    private val firebaseAuth: FirebaseAuth,
+    private val db: FirebaseFirestore
+) : RemoteDataProvider {
 
-    companion object {
-        private val TAG = "${FireStoreProvider::class.java.simpleName} :"
-    }
-
-    private val db = FirebaseFirestore.getInstance()
-    private val notesReference = db.collection(NOTES_COLLECTION)
-    private val currentUser get() = FirebaseAuth.getInstance().currentUser
-
+    private val currentUser get() = firebaseAuth.currentUser
 
     override fun subscribeToAllNotes(): LiveData<NoteResult> =
         MutableLiveData<NoteResult>().apply {
@@ -91,6 +88,23 @@ class FireStoreProvider : RemoteDataProvider {
                     it.displayName ?: "",
                     it.email ?: ""
                 )
+            }
+        }
+
+    override fun deleteNote(noteId: String): LiveData<NoteResult> =
+        MutableLiveData<NoteResult>().apply {
+            try {
+                getUserNotesCollection()
+                    .document(noteId)
+                    .delete()
+                    .addOnSuccessListener {
+                        value = NoteResult.Success(null)
+                    }
+                    .addOnFailureListener {
+                        throw(it)
+                    }
+            } catch (e: Throwable) {
+                value = NoteResult.Error(e)
             }
         }
 

@@ -3,6 +3,8 @@ package geekbrains.ru.banananotes.ui
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.cardview.widget.CardView
+import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import geekbrains.ru.banananotes.R
 import geekbrains.ru.banananotes.databinding.ItemNoteBinding
@@ -39,16 +41,7 @@ class MainAdapter(private val onItemClickListener: OnItemClickListener) : Recycl
             ui.title.text = note.title
             ui.body.text = note.note
 
-            val color = when (note.color) {
-                Color.WHITE -> R.color.color_white
-                Color.VIOLET -> R.color.color_violet
-                Color.YELLOW -> R.color.color_yellow
-                Color.RED -> R.color.color_red
-                Color.PINK -> R.color.color_pink
-                Color.GREEN -> R.color.color_green
-                Color.BLUE -> R.color.color_blue
-            }
-            itemView.setBackgroundResource(color)
+            ui.container.setCardBackgroundColor(note.color.getColorInt(itemView.context))
             itemView.setOnClickListener { onItemClickListener.onItemClick(note) }
         }
     }

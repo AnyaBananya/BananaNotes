@@ -7,6 +7,7 @@
     android:layout_marginStart="@dimen/item_margin"
     android:layout_marginTop="@dimen/item_margin"
     android:layout_marginBottom="@dimen/item_margin"
+    android:id="@+id/container"
     tools:backgroundTint="@android:color/holo_purple">
 
     <LinearLayout

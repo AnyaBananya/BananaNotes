@@ -6,7 +6,7 @@ import geekbrains.ru.banananotes.model.NoteResult
 import geekbrains.ru.banananotes.model.repository.Repository
 import geekbrains.ru.banananotes.ui.viewstate.MainViewState
 
-class MainViewModel(val repository: Repository = Repository) :
+class MainViewModel(val repository: Repository) :
     BaseViewModel<List<Note>?, MainViewState>() {
 
     private val notesObserver = object : Observer<NoteResult> {
