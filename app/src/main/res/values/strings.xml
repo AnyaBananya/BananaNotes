@@ -3,4 +3,5 @@
     <string name="toolbar_title">Banana Notes</string>
     <string name="add_notes_description">Add notes</string>
     <string name="new_note_title">New note</string>
+    <string name="ok_bth_title">OK</string>
 </resources>
