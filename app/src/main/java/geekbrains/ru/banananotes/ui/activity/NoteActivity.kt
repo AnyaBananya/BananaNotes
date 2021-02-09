@@ -9,6 +9,8 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.MenuItem
 import androidx.lifecycle.ViewModelProvider
+import com.firebase.ui.auth.AuthUI
+import com.google.android.gms.auth.api.Auth
 import geekbrains.ru.banananotes.R
 import geekbrains.ru.banananotes.databinding.ActivityNoteBinding
 import geekbrains.ru.banananotes.model.Note
@@ -118,6 +120,11 @@ class NoteActivity : BaseActivity<Note?, NoteViewState>() {
     }
 
     override fun onLogout() {
-        //
+        AuthUI.getInstance()
+            .signOut(this)
+            .addOnCompleteListener{
+                startActivity(Intent(this, SplashActivity::class.java))
+                finish()
+            }
     }
 }

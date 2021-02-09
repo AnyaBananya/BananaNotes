@@ -14,6 +14,7 @@ import com.firebase.ui.auth.AuthUI
 import geekbrains.ru.banananotes.R
 import geekbrains.ru.banananotes.databinding.ActivityMainBinding
 import geekbrains.ru.banananotes.model.Note
+import geekbrains.ru.banananotes.ui.LogoutDialog
 import geekbrains.ru.banananotes.ui.MainAdapter
 import geekbrains.ru.banananotes.ui.OnItemClickListener
 import geekbrains.ru.banananotes.ui.activity.BaseActivity
@@ -84,24 +85,5 @@ class MainActivity : BaseActivity<List<Note>?, MainViewState>(),
 
     companion object {
         fun getStartIntent(context: Context) = Intent(context, MainActivity::class.java)
-    }
-}
-
-class LogoutDialog : DialogFragment() {
-    companion object {
-        val TAG = LogoutDialog::class.java.name + "TAG"
-        fun createInstance() = LogoutDialog()
-    }
-
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog =
-        AlertDialog.Builder(context!!)
-            .setTitle(R.string.logout_dialog_title)
-            .setMessage(R.string.logout_dialog_message)
-            .setPositiveButton(R.string.ok_bth_title) { _, _ -> (activity as LogoutListener).onLogout() }
-            .setNegativeButton(R.string.logout_dialog_cancel) { _, _ -> dismiss() }
-            .create()
-
-    interface LogoutListener {
-        fun onLogout()
     }
 }
