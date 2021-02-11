@@ -54,12 +54,11 @@ class NoteActivity : BaseActivity<NoteViewState.Data, NoteViewState>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //   ui = ActivityNoteBinding.inflate(layoutInflater)
-
-        val noteId = intent.getStringExtra(EXTRA_NOTE)
         setSupportActionBar(findViewById(R.id.toolbar))
 
+        val noteId = intent.getStringExtra(EXTRA_NOTE)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         noteId?.let {
             viewModel.loadNote(it)
         } ?: kotlin.run {
@@ -85,6 +84,9 @@ class NoteActivity : BaseActivity<NoteViewState.Data, NoteViewState>() {
 
     private fun initView() {
         note?.run {
+            supportActionBar?.title = lastChanged.format()
+            setToolbarColor(color)
+
             removeEditListener()
             if (title != ui.titleEt.text.toString()) {
                 ui.titleEt.setText(title)
@@ -93,8 +95,6 @@ class NoteActivity : BaseActivity<NoteViewState.Data, NoteViewState>() {
                 ui.bodyEt.setText(note)
             }
             setEditListener()
-            supportActionBar?.title = lastChanged.format()
-            setToolbarColor(color)
         }
     }
 
@@ -128,12 +128,11 @@ class NoteActivity : BaseActivity<NoteViewState.Data, NoteViewState>() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean =
         menuInflater.inflate(R.menu.menu_note, menu).let { true }
 
-    private fun createNewNote(): Note {
-        return viewModel.addNote(
-            ui.titleEt.text.toString(),
-            ui.bodyEt.text.toString()
-        )
-    }
+    private fun createNewNote(): Note = Note(
+        UUID.randomUUID().toString(),
+        ui.titleEt.text.toString(),
+        ui.bodyEt.text.toString()
+    )
 
     private fun triggerSaveNote() {
         if (ui.titleEt.text == null || ui.titleEt.text!!.length < 3) return

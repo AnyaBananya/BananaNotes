@@ -26,7 +26,7 @@ class NoteViewModel(val repository: Repository) :
 
     fun addNote(title: String, note: String): Note {
         val newNote = Note(id = UUID.randomUUID().toString(), title = title, note = note)
-        Repository.saveNote(newNote)
+      //  Repository.saveNote(newNote)
         return newNote
     }
 

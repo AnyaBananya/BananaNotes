@@ -48,11 +48,9 @@ class MainActivity : BaseActivity<List<Note>?, MainViewState>(),
                 openNoteScreen(note)
             }
         })
-        mainRecycler.adapter = adapter
 
-        floatingButton.setOnClickListener {
-            openNoteScreen()
-        }
+        ui.mainRecycler.adapter = adapter
+        ui.floatingButton.setOnClickListener { openNoteScreen(null) }
     }
 
     private fun openNoteScreen(note: Note? = null) {
