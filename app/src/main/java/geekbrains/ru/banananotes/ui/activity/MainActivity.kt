@@ -20,7 +20,7 @@ import geekbrains.ru.banananotes.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class MainActivity : BaseActivity<List<Note>?, MainViewState>(),
+class MainActivity : BaseActivity<List<Note>?>(),
     LogoutDialog.LogoutListener {
 
     override val viewModel: MainViewModel by viewModel()
